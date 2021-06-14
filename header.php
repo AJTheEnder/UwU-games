@@ -12,7 +12,7 @@
             <img src="assets\img\UWU_Logo_Light.png" alt="Logo" class="UwU_Logo">
             <div class="PageList">
                 <div class="PageLink">
-                    <a href="">Shop</a>
+                    <a href="shop.php">Shop</a>
                 </div>
                 <div class="PageLink">
                     <a href="">Library</a>
@@ -24,7 +24,7 @@
                     <a href="">Profile</a>
                 </div>
                 <div class="PageLink">
-                    <a href="">Login</a>
+                    <a href="login.php">Login</a>
                 </div>
             </div>
         </nav>

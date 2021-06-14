@@ -7,19 +7,17 @@
     </head>
     <body>
     <?php include_once 'header.php'; ?>
-        <div class="wrapper">
+        <div class="signBox">
             <section class="signup-form">
                 <h2>Sign Up</h2>
-                <div class="signup-form">
-                    <form action="/includes/signup.inc.php" method="post">
-                        <input type="text" name="name" placeholder="Enter your name">
-                        <input type="email" name="email" placeholder="Enter your email">
-                        <input type="text" name="uid" placeholder="Enter your username">
-                        <input type="password" name="pwd" placeholder="Enter yout password">
-                        <input type="password" name="pwdRepeat" placeholder="Repeat your password">
-                        <button type="submit" name="submit">Sign Up</button>
+                    <form action="/includes/signup.inc.php" method="post" class="signup-form">
+                        <input type="text" name="name" placeholder="Enter your name" class="signup-input">
+                        <input type="email" name="email" placeholder="Enter your email" class="signup-input">
+                        <input type="text" name="uid" placeholder="Enter your username" class="signup-input">
+                        <input type="password" name="pwd" placeholder="Enter yout password" class="signup-input">
+                        <input type="password" name="pwdRepeat" placeholder="Repeat your password" class="signup-input">
+                        <button type="submit" name="submit" id="SignupSubmit">Sign Up</button>
                     </form>
-                </div>
             </section>
         </div>
     <?php include_once 'footer.php'; ?>
