@@ -11,7 +11,7 @@
             <section class="signup-form">
                 <h2>Sign Up</h2>
                 <div class="signup-form">
-                    <form action="signup.inc.php" method="post">
+                    <form action="/includes/signup.inc.php" method="post">
                         <input type="text" name="name" placeholder="Enter your name">
                         <input type="email" name="email" placeholder="Enter your email">
                         <input type="text" name="uid" placeholder="Enter your username">
