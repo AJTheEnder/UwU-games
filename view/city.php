@@ -7,7 +7,7 @@
     </head>
     <title>One city</title>
     <body>
-    <h1>City <?= $params['city']['name'] ?></h1>
+    <h1>City <?= $params['city']['name']; ?></h1>
         <p>
             Name of the city: <?= $params['city']['name']; ?>
         </p>
@@ -18,7 +18,7 @@
             Quality of life: <?= $params['city']['life']; ?>
         </p>
 
-        <a href="/">
+        <a href="cities.php">
             Back to list of cities
         </a>
     </body>

@@ -8,8 +8,8 @@
      "127.0.0.1",
      "citytowns",
      "root",
-     "root",
-     "8889"
+     "",
+     
  );
  $model = new CityModel($Database);
  $controller =  new CityController($model);

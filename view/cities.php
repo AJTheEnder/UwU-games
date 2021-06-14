@@ -8,17 +8,17 @@
     <title>All Cities</title>
     <body>
     <h1>All Cities</h1>
-    <?php if($flash) {
+    <?php if(isset($params['flash'])) {
         echo "
            <p style='color: green'>
-            " . $flash . " 
+            " . $params['flash'] . " 
            </p>
         ";
     } ?>
     <table>
-        <?php foreach ($params['cities'] as $cityId => $city) : ?>
+        <?php foreach ($params['cities'] as $city) : ?>
         <tr>
-            <td><a href="/city/<?= $city['id']; ?>"><?=
+            <td><a href="city/<?php echo $city['id']; ?>"><?=
             $city['name']; ?></a></td>
             <td><?= $city['country']; ?></td>
             <td>Quality of life: <?= $city['life']; ?></td> <!--added property life-->
@@ -28,13 +28,13 @@
 
     </table>
     <p>
-        <a href="/recherche.php">Search cities by name</a>
+        <a href="recherche.php">Search cities by name</a>
     </p>
     <p>
-        <a href="/create.php">Create a new city</a>
+        <a href="create.php">Create a new city</a>
     </p>
     <p>
-        <a href="/countries.php">Countries</a>
+        <a href="countries.php">Countries</a>
     </p>
 
     </body>

@@ -9,7 +9,7 @@
     <body>
     <h1>Create a city</h1>
 
-    <?php if($error) {
+    <?php if(isset($params['error'])) {
         echo "
            <p style='color: red'>
             An error has occured, please retry.
@@ -17,24 +17,24 @@
         ";
     } ?>
 
-    <form action="/handleCreate.php" method="POST">
+    <form action="handleCreate.php" method="POST">
         <p>
             <label>Name of the city</label>
-            <input type="text" name="name" value="<?php if($city) echo $city['name']; ?>">
+            <input type="text" name="name" value="<?php if(isset($params['city'])) echo $params['city']['name']; ?>">
         </p>
         <p>
             <label>Country of the city</label>
-            <input type="text" name="country" value="<?php if($city) echo $city['country']; ?>">
+            <input type="text" name="country" value="<?php if(isset($params['city'])) echo $params['city']['country']; ?>">
         </p>
         <p>
             <label>Life quality of the city</label>
-            <input type="text" name="life" placeholder="A, B, C... just a letter" value="<?php if($city) echo $city['life']; ?>">
+            <input type="text" name="life" placeholder="A, B, C... just a letter" value="<?php if(isset($params['city'])) echo $params['city']['life']; ?>">
         </p>
 
         <button type="submit">Submit</button>
     </form>
     <p>
-        <a href="/recherche.php">Search cities by name</a>
+        <a href="recherche.php">Search cities by name</a>
     </p>
 
     </body>

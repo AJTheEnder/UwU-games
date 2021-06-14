@@ -1,17 +1,11 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: kristengarnier
- * Date: 2019-03-05
- * Time: 16:23
- */
+<?php 
 
 require_once __DIR__ . '/route/route.php';
 
 class App
 {
-    const GET = 'GET';
-    const POST = 'POST';
+    const GET = "GET";
+    const POST = 'POST'; 
     const PUT = 'PUT';
     const DELETE = 'DELETE';
 
@@ -25,43 +19,65 @@ class App
      */
     private $statusCode;
 
-    public function get($pattern, $callable) {
-        $this->registerRoute(self::GET, $pattern, $callable);
+    /**
+     * Creates a route for HTTP verb Get
+     * 
+     * @param string $pattern
+     * @param callable $callable
+     * @param App $this
+     */
 
+    public function get(string $pattern,callable $callable){
+        $this->registerRoute(self::GET,$pattern,$callable);
         return $this;
     }
 
-    public function run() {
+    /**
+     * Register a route in the routes array
+     * 
+     * @param string $pattern
+     * @param callable $callable
+     * @param string $method 
+     */
+    private function registerRoute(string $method,string $pattern,callable $callable){
+        $this->routes[] = new Route($method,$pattern,$callable);
+
+    }
+
+    /**
+     * 
+     * @throws HttpException
+     */
+    public function run(){
         $method = $_SERVER['REQUEST_METHOD'] ?? self::GET;
         $uri = $_SERVER['REQUEST_URI'] ?? '/';
 
-        foreach ($this->routes as $route) {
-            if($route->match($method, $uri)) {
+        foreach($this->routes as $route){
+            if($route-> match($method,$uri)){
                 return $this->process($route);
             }
         }
 
-        throw new HttpException(404, "Page not found");
-    }
+        throw new Error('No routes available for this uri');
 
-    private function process(Route $route) {
-        try {
-            http_response_code($this->statusCode);
-            echo call_user_func_array($route->getCallable(), $route->getArguments());
-        } catch (HttpException $e) {
-            throw $e;
-        } catch (\Exception $e) {
-            throw new HttpException(500, null, $e);
-        }
     }
 
     /**
-     * @param string   $method
-     * @param string   $pattern
-     * @param callable $callable
+     * Process Route
+     * 
+     * @param Route route 
+     * @throws HttpException
      */
-    private function registerRoute($method, $pattern, $callable)
-    {
-        $this->routes[] = new Route($method, $pattern, $callable);
+    private function process(Route $route){
+        try {
+            http_response_code($this->statusCode);
+            echo call_user_func_array($route->getCallable(),$route->getArguments());
+        }catch (HttpException $e) {
+            throw $e;
+        }
+        catch (\Exception $e){
+            throw new Error('There was an error during the processing of your request');
+        }
     }
+
 }

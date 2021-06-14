@@ -8,6 +8,9 @@
 
 abstract class ControllerBase
 {
+    /**
+     * @var \CityModel
+     */
     protected $model;
 
     public function __construct($model) {
@@ -23,6 +26,11 @@ abstract class ControllerBase
         ob_start();
         include __DIR__ . '/../view/' . $template . '.php';
         ob_end_flush();
+        die();
+    }
+
+    protected function redirect($location) {
+        header("Location: $location");
         die();
     }
 }

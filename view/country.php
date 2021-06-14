@@ -7,11 +7,15 @@
     </head>
     <title>All cities</title>
     <body>
-    <h1>All cities from <?= $country; ?></h1>
+    <h1>All cities from <?= $params['country']; ?></h1>
     <table>
-        <?php foreach ($citiesFromCountry as $city) : ?>
+        <?php foreach ($params['cities'] as $city) : ?>
         <tr>
-            <td><?= $city['name']; ?></td>
+            <td>
+                <a href="city.php?id=<?= $city['id']; ?>">
+                    <?= $city['name']; ?>
+                </a>
+            </td>
         </tr>
         
         <?php endforeach; ?>

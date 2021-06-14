@@ -16,16 +16,28 @@ class CityModel implements CitiesInterface {
         return $query->fetchAll(\PDO::FETCH_ASSOC);
     }
 
-    public function findOne(int $id) {
-        $query = $this->conn->prepare('SELECT c.name, c.country, c.life FROM city c WHERE c.id = :id'); // Création de la requête + utilisation order by pour ne pas utiliser sort
-        $query->execute([':id' => $id]); // Exécution de la requête
-        return $query->fetch(\PDO::FETCH_ASSOC);
+    public function findAllCountries() : Array {
+        $query = $this->conn->prepare('SELECT DISTINCT c.country FROM city c ORDER BY c.country'); // Création de la requête + utilisation order by pour ne pas utiliser sort
+        $query->execute(); // Exécution de la requête
+        return $query->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public function findAByCountry($name) : Array {
+        $query = $this->conn->prepare('SELECT c.id, c.name, c.country, c.life FROM city c WHERE c.country = :name ORDER BY c.name'); // Création de la requête + utilisation order by pour ne pas utiliser sort
+        $query->execute([':name' => $name]); // Exécution de la requête
+        return $query->fetchAll(\PDO::FETCH_ASSOC);
     }
 
     public function search($searchString) {
         $query = $this->conn->prepare('SELECT c.name, c.country, c.life FROM city c WHERE c.name like :search ORDER BY c.name'); // Création de la requête + utilisation order by pour ne pas utiliser sort
         $query->execute([':search' => '%' . $searchString .  '%']); // Exécution de la requête
         return $query->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public function findOneById($id) {
+        $query = $this->conn->prepare('SELECT c.name, c.country, c.life FROM city c WHERE c.id = :id'); // Création de la requête + utilisation order by pour ne pas utiliser sort
+        $query->execute([':id' => $id]); // Exécution de la requête
+        return $query->fetch(\PDO::FETCH_ASSOC);
     }
 
     public function save(Array $city) : Bool {

@@ -1,17 +1,15 @@
 <?php
- // ~/php/tp1/public/cities.php
- // include model
-include __DIR__ . '/../database/db.php';
+require_once __DIR__ . '/../database/db.php';
+require_once __DIR__ . '/../model/cities.php';
+require_once __DIR__ . '/../controller/CountryController.php';
 
- include __DIR__ . '/../model/cities.php';
-$cities = modelFetchAll($dbh);
-
- $countries = []; // Will be used to contain all our countries
- foreach($cities as $city) {
-     if(!in_array($city['country'], $countries)) { // Check if country does not already exists in array
-         array_push($countries, $city['country']);
-     }
- }
-
- // include view
- include __DIR__ . '/../view/countries.php';
+$Database = new Database(
+    "127.0.0.1",
+    "citytowns",
+    "root",
+    "",
+   
+);
+$model = new CityModel($Database);
+$controller =  new CountryController($model);
+$controller->countriesHandler();

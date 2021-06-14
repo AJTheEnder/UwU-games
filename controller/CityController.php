@@ -15,15 +15,62 @@ class CityController extends ControllerBase
     }
 
     public function citiesHandler() {
+        if(key_exists('flash', $_GET)) {
+            $flash = urldecode($_GET['flash']);
+        }
+
         $cities = $this->model->findAll();
-        $this->render('cities', ["cities" => $cities]);
+        $this->render('cities', ["cities" => $cities, 'flash' => $flash ?? null]);
     }
 
-    public function cityHandler($id) {
-        if(!$id) { // On vérifie si on a bien les informations
-            $this->render('404'); // On affiche la page 404 si il n'y  a pas ce que l'on veut
+    public function cityHandler(int $id) {
+        
+        if(!$id) {
+            $this->render('404'); 
         }
-        $city = $this->model->findOne($id); // Récupération des cities
-        $this->render('city', ['city' => $city]); // Envoi de la ville choisie
+        
+        $city = $this->model->findOneById($id);
+
+        $this->render('city', ['city' => $city]);
     }
+
+    public function createHandler() {
+        $this->render('createCity');
+    }
+
+    public function createDBHandler() {
+        try { // on utilise un try catch pour renvoyer vers une erreur si la requête n'a pas fonctionné
+            $city = [
+                'name' => $_POST['name'],
+                'country' => $_POST['country'],
+                'life' => $_POST['life']
+            ];
+
+            $result = $this->model->save($city);
+
+            if(!$result) {
+                $this->render('createCity', ['city' => $city, 'error' => true]);
+            }
+
+            $flash = "New city has been sucessfully created";
+            $this->redirect('cities.php?flash=' . urlencode($flash));
+
+        } catch (Exception $e) {
+            $this->render('createCity', ['city' => $city, 'error' => $e]);
+        }
+    }
+
+    public function searchHandler() {
+        if(!key_exists('search', $_GET)) { // On vérfie si la référence est bien passée
+            $this->render('404');
+        }
+
+        $search = $_GET['search'];
+
+        $cities = $this->model->search($search);
+
+        $this->render('cities', ['cities' => $cities]);
+    }
+
+  
 }
