@@ -52,12 +52,13 @@ function pwdMatch($pwd, $pwdRepeat)
 
 function uidExists($conn, $uid, $email)
 {
-    $sql = 'SELECT * FORM users WHERE usersUid = ? OR usersEmail = ?;';
-    $stml = mysqli_stmt_init($conn);
-    if (!mysqli_stmt_prepare($stml, $sql)) {
+    $sql = 'SELECT usersId FORM users WHERE usersUid = ? OR usersEmail = ?;';
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
         header('location: ../signup.php?error=stmtfailed');
         exit();
     }
+
     mysqli_stmt_bind_param($stmt, 'ss', $uid, $email);
     mysqli_stmt_exectute($stmt);
 
@@ -72,12 +73,12 @@ function uidExists($conn, $uid, $email)
 
     mysqli_stmt_close($stmt);
 }
-
+/*
 function createUser($conn, $name, $email, $uid, $pwd)
 {
     $sql =
         'INSERT INTO users (usersName, usersEmail, usersUid, userPwd ) VALUES (?, ?, ?, ?);';
-    $stml = mysqli_stmt_init($conn);
+    $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stml, $sql)) {
         header('location: ../signup.php?error=stmtfailed');
         exit();
@@ -93,3 +94,4 @@ function createUser($conn, $name, $email, $uid, $pwd)
     header('location: ../signup.php?error=none');
     exit();
 }
+*/

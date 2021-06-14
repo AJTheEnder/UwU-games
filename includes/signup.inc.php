@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
         exit();
     }
 
-    createUser($conn, $name, $email, $uid, $pwd);
+    //createUser($conn, $name, $email, $uid, $pwd);
 } else {
     header('location: ../');
 }
