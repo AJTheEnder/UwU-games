@@ -6,15 +6,26 @@
         <link rel="stylesheet" href="/assets/css/style.css">
     </head>
     <body>
-        <nav>
-            <div class="wrapper">
-                <a href="index.php"><img src="/assets/img/logo.png" alt="logo"></a>
-                <ul>
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="discover.php">About Us</a></li>
-                    <li><a href="shop.php">Shop</a></li>
-                    <li><a href="signup.php">Sign up</a></li>
-                    <li><a href="login.php">Log in</a></li>
-                </ul>
+
+        <div class="Top">
+        <nav class="TopBar">
+            <img src="assets\img\UWU_Logo_Light.png" alt="Logo" class="UwU_Logo">
+            <div class="PageList">
+                <div class="PageLink">
+                    <a href="">Shop</a>
+                </div>
+                <div class="PageLink">
+                    <a href="">Library</a>
+                </div>
+                <div class="PageLink">
+                    <a href="">Add Game</a>
+                </div>
+                <div class="PageLink">
+                    <a href="">Profile</a>
+                </div>
+                <div class="PageLink">
+                    <a href="">Login</a>
+                </div>
             </div>
         </nav>
+    </div>
