@@ -9,9 +9,8 @@ if (isset($_POST['submit'])) {
 
     require_once './dbh.inc.php';
     require_once './functions.inc.php';
-    require_once './dbh.inc.php';
 
-    if (emptyInputSignup($name, $email, $uid, $pwd, $pwdRepeat) !== false) {
+    if (emptyInputSignup($name, $email, $uid, $pwd, $pwdRepeat) === true) {
         header('location: ../signup.php?error=emptyinput');
         exit();
     }
@@ -38,5 +37,5 @@ if (isset($_POST['submit'])) {
 
     createUser($dbh, $name, $email, $uid, $pwd);
 } else {
-    header('location: ../');
+    header('location: ../signup.php');
 }

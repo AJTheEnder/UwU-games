@@ -6,26 +6,29 @@
         <link rel="stylesheet" href="/assets/css/style.css">
     </head>
     <body>
-
         <div class="Top">
         <nav class="TopBar">
             <img src="assets\img\UWU_Logo_Light.png" alt="Logo" class="UwU_Logo">
-            <div class="PageList">
-                <div class="PageLink">
-                    <a href="shop.php">Shop</a>
-                </div>
-                <div class="PageLink">
+            <ul class="PageList">
+                <li class="PageLink">
+                    <a href="#">Shop</a>
+                </li>
+                <li class="PageLink">
                     <a href="#">Library</a>
-                </div>
-                <div class="PageLink">
+                </li>
+                <li class="PageLink">
                     <a href="#">Add Game</a>
-                </div>
-                <div class="PageLink">
-                    <a href="signup.php">Signup</a>
-                </div>
-                <div class="PageLink">
-                    <a href="login.php">Login</a>
-                </div>
-            </div>
+                </li>
+                <?php
+                    if (isset($_SESSION["userid"])) {
+                        echo '<li class="PageLink"><a href="profile.php">Profile</a></li>';
+                        echo '<li class="PageLink"><a href="logout.php">Log out</a></li>';
+                    }
+                    else {
+                        echo '<li class="PageLink"><a href="signup.php">Sign up</a></li>';
+                        echo '<li class="PageLink"><a href="login.php">Log in</a></li>';
+                    }
+                ?>
+            </ul>
         </nav>
     </div>

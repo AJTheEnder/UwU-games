@@ -65,14 +65,33 @@ a:active {
   display: flex;
   height: 64px;
 }
-.PageList {
+ul.PageList {
+  list-style: none;
   display: flex;
   flex-direction: row;
   width: 100%;
 }
-.PageLink {
+li.PageLink {
+  padding: 0;
   margin: auto;
 }
+
+.PageList.PageList a:link,
+.PageList.PageList a:visited {
+  transition-duration: 0.3s;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--highlight);
+}
+
+.PageList.PageList a:hover,
+.PageList.PageList a:active {
+  transition-duration: 0.3s;
+  color: var(--pink_highlight);
+  text-decoration: none;
+  text-shadow: 0px 0px 15px var(--pink_highlight);
+}
+
 .signBox {
   display: flex;
   flex-direction: column;
