@@ -1,12 +1,18 @@
 <?php
 
-$serverName = 'localhost';
-$dbUsername = 'root';
-$dbPassword = '';
-$dbName = 'uwugames';
+$serverName = "localhost";
+$serverPort = "3306";
+$dbName = "uwugames";
+$dbUsername = "root";
+$dbPassword = "";
 
-$conn = mysqli_connect($serverName, $dbUsername, $dbPassword, $dbName);
+$dbh;
 
-if (!$conn) {
-    die('Connection failed : ' . mysqli_connect_error());
+try
+{
+    $dbh = new PDO("mysql:host=$serverName;port=$serverPort;dbname=$dbName", $dbUsername, $dbPassword);
+}
+catch(PDOException $e) {
+    print "Erreur !: " . $e->getMessage() . "<br>"; // Affichage du message d'erreur
+    die(); // Arrêt du script
 }

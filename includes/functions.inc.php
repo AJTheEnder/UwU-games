@@ -50,48 +50,27 @@ function pwdMatch($pwd, $pwdRepeat)
     return $result;
 }
 
-function uidExists($conn, $uid, $email)
+function uidExists($dbh, $uid, $email)
 {
-    $sql = 'SELECT usersId FORM users WHERE usersUid = ? OR usersEmail = ?;';
-    $stmt = mysqli_stmt_init($conn);
-    if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header('location: ../signup.php?error=stmtfailed');
-        exit();
-    }
+    $sql = "SELECT usersId FROM users WHERE usersUid = :uid OR usersEmail = :email;";
+    $sth = $dbh->prepare($sql);
+    $sth->execute(array(':uid' => $uid, ':email' => $email));
 
-    mysqli_stmt_bind_param($stmt, 'ss', $uid, $email);
-    mysqli_stmt_exectute($stmt);
-
-    $resultData = mysqli_stmt_get_result($stmt);
-
-    if ($row = mysqli_fetch_assoc($resultData)) {
-        return $row;
+    if ($resultData = $sth->fetchAll()) {
+        return $resultData;
     } else {
         $result = false;
         return $result;
     }
-
-    mysqli_stmt_close($stmt);
 }
-/*
-function createUser($conn, $name, $email, $uid, $pwd)
+
+function createUser($dbh, $name, $email, $uid, $pwd)
 {
-    $sql =
-        'INSERT INTO users (usersName, usersEmail, usersUid, userPwd ) VALUES (?, ?, ?, ?);';
-    $stmt = mysqli_stmt_init($conn);
-    if (!mysqli_stmt_prepare($stml, $sql)) {
-        header('location: ../signup.php?error=stmtfailed');
-        exit();
-    }
-
+    $sql = "INSERT INTO users (usersName, usersEmail, usersUid, usersPwd) VALUES (:name, :email, :uid, :pwd);";
+    $sth = $dbh->prepare($sql);
     $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
-
-    mysqli_stmt_bind_param($stmt, 'ssss', $name, $email, $uid, $pwd);
-    mysqli_stmt_exectute($stmt);
-
-    mysqli_stmt_close($stmt);
+    $sth->execute(array(':name' => $name, ':email' => $email, ':uid' => $uid, ':pwd' => $hashedPwd));
 
     header('location: ../signup.php?error=none');
     exit();
 }
-*/
