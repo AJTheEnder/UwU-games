@@ -15,13 +15,13 @@
                     <a href="shop.php">Shop</a>
                 </div>
                 <div class="PageLink">
-                    <a href="">Library</a>
+                    <a href="#">Library</a>
                 </div>
                 <div class="PageLink">
-                    <a href="">Add Game</a>
+                    <a href="#">Add Game</a>
                 </div>
                 <div class="PageLink">
-                    <a href="">Profile</a>
+                    <a href="signup.php">Signup</a>
                 </div>
                 <div class="PageLink">
                     <a href="login.php">Login</a>
