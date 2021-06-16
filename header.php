@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
     <head>
@@ -20,7 +24,7 @@
                     <a href="#">Add Game</a>
                 </li>
                 <?php
-                    if (isset($_SESSION["userid"])) {
+                    if (isset($_SESSION["useruid"])) {
                         echo '<li class="PageLink"><a href="profile.php">Profile</a></li>';
                         echo '<li class="PageLink"><a href="logout.php">Log out</a></li>';
                     }

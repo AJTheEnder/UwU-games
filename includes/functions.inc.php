@@ -52,7 +52,7 @@ function pwdMatch($pwd, $pwdRepeat)
 
 function uidExists($dbh, $uid, $email)
 {
-    $sql = "SELECT usersName, usersEmail, usersUid, usersPwd FROM users WHERE usersUid = :uid OR usersEmail = :email;";
+    $sql = "SELECT usersId, usersName, usersEmail, usersUid, usersPwd FROM users WHERE usersUid = :uid OR usersEmail = :email;";
     $sth = $dbh->prepare($sql);
     $sth->execute(array(':uid' => $uid, ':email' => $email));
 
@@ -104,7 +104,7 @@ function loginUser($dbh, $uid, $pwd)
         exit();
     }
     else {
-        session_start();
+        //session_start();
         $_SESSION["userid"] = $uidExists["usersId"];
         $_SESSION["useruid"] = $uidExists["usersUid"];
         header('location: ../index.php');
