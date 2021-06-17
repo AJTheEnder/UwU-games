@@ -1,4 +1,4 @@
-<?php include_once 'header.php'; ?>
+<?php include_once 'headerView.php'; ?>
     <div class="wrapper">
         <section class="index-intro">
             <h1>This is an introduction</h1>
@@ -23,4 +23,4 @@
             </div>
         </section>
     </div>
-<?php include_once 'footer.php'; ?>
+<?php include_once 'footerView.php'; ?>

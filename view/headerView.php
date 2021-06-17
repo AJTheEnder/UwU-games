@@ -15,7 +15,7 @@
                 <img src="assets\img\UWU_Logo_Light.png" alt="Logo" class="UwU_Logo">
                 <ul class="PageList">
                     <li class="PageLink">
-                        <a href="#">Shop</a>
+                        <a href="shop.php">Shop</a>
                     </li>
                     <li class="PageLink">
                         <a href="#">Library</a>
