@@ -72,6 +72,9 @@ function createUser($dbh, $name, $email, $uid, $pwd)
     $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
     $sth->execute(array(':name' => $name, ':email' => $email, ':uid' => $uid, ':pwd' => $hashedPwd));
 
-    header('location: ../signup.php?error=none');
+    session_start();
+    $_SESSION["userid"] = $uidExists["usersId"];
+    $_SESSION["useruid"] = $uidExists["usersUid"];
+    header('location: ./shop.php');
     exit();
 }
