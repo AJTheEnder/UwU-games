@@ -19,6 +19,7 @@
                 </tbody>
             </table>
             <a href="./deleteUser.php">Delete user</a>
+            <a href="./modifyProfile.php">Modify profile</a>
         </section>
     </div>
 <?php include_once 'footerView.php'; ?>

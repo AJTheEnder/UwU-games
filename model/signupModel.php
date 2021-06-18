@@ -72,9 +72,17 @@ function createUser($dbh, $name, $email, $uid, $pwd)
     $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
     $sth->execute(array(':name' => $name, ':email' => $email, ':uid' => $uid, ':pwd' => $hashedPwd));
 
+    // Get user id
+    $sql = "SELECT usersId FROM users WHERE usersEmail = :email;";
+    $sth = $dbh->prepare($sql);
+    $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
+    $sth->execute(array(':email' => $email));
+
+    $id = ($sth->fetchAll())[0];
+    // Automaticaly login the user
     session_start();
-    $_SESSION["userid"] = $uidExists["usersId"];
-    $_SESSION["useruid"] = $uidExists["usersUid"];
+    $_SESSION["userid"] = $id;
+    $_SESSION["useruid"] = $uid;
     header('location: ./shop.php');
     exit();
 }
