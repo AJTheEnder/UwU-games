@@ -13,6 +13,9 @@ if (isset($_POST["submit"])) {
     }
 
     loginUser($dbh, $uid, $pwd);
+
+    header('location: ./login.php?error=none');
+    exit();
 }
 else {
     header('location: ./login.php');

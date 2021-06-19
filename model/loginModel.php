@@ -46,6 +46,7 @@
             session_start();
             $_SESSION["userid"] = $uidExists["usersId"];
             $_SESSION["useruid"] = $uidExists["usersUid"];
+
             header('location: ./shop.php');
             exit();
         }

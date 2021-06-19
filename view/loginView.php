@@ -8,9 +8,21 @@
                         echo "<p class='errorMessage'>Wrong login or password</p>";
                     }
                 }
+                if (isset($_GET["from"])) {
+                    if ($_GET["from"] == "addGame") {
+                        echo "<p class='fromMessage'>You must login before acces this page</p>";
+                    }
+                }
             ?>
             <div class="login-form">
-                <form action="./loginValidate.php" method="post">
+                <?php 
+                if (isset($_GET["from"])) {
+                    echo '<form action="./loginValidate.php?from=$_GET["from"]" method="post">';
+                }
+                else {
+                    echo "<form action='./loginValidate.php' method='post'>";
+                }
+                ?>
                     <input type="text" name="uid" placeholder="Enter your username/email">
                     <input type="password" name="pwd" placeholder="Enter yout password">
                     <button type="submit" name="submit">Sign Up</button>

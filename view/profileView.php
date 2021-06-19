@@ -1,9 +1,12 @@
 <?php include_once 'headerView.php'; ?>
     <div class="wrapper">
         <section class="signup-form">
-            <?php echo("<h2>Hello " . $resultData['usersName'] . "</p>"); ?>
             <table>
                 <tbody>
+                    <tr>
+                        <td><img src="<?php echo("assets/img/upload/avatar/avatar" . $_SESSION["userid"] . ".jpg")?>" alt="avatar" height="200px" width="200px"></td>
+                        <td><?php echo("<h2>Hello " . $resultData['usersName'] . "</p>"); ?></td>
+                    </tr>
                     <tr>
                         <td>Username</td>
                         <td><?php echo ($resultData['usersUid']); ?></td>
