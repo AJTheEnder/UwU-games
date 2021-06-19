@@ -6,23 +6,32 @@
         exit();
     }
 ?>
-    <div class="signBox">
-        <section class="signup-form">
+    <div class="addGameBox">
+        <section class="addgame-form">
             <h2>Sign Up</h2>
             <?php
                 if (isset($_GET["error"])) {
                     if ($_GET["error"] == "emptyinput") {
                         echo "<p class='errorMessage'>Please, fill in all fields</p>";
                     }
+                    if ($_GET["error"] == "invalidname") {
+                        echo "<p class='errorMessage'>The name is invalide (only use A-Z, a-z, 0-9)</p>";
+                    }
+                    if ($_GET["error"] == "invalidlink") {
+                        echo "<p class='errorMessage'>Invalid link</p>";
+                    }
+                    if ($_GET["error"] == "gameexists") {
+                        echo "<p class='errorMessage'>This game already exists</p>";
+                    }
                 }
             ?>
-            <form action="./signupValidate.php" method="post" class="">
+            <form action="./addGameValidate.php" method="post" class="">
                 <input type="text" name="gameName" placeholder="Game name" class="">
-                <textarea name="gamesDescription" placeholder="Game description (supports markdown)" class=""></textarea>
-                <input type="text" name="uid" placeholder="Enter your username" class="">
-                <input type="password" name="pwd" placeholder="Enter yout password" class="">
-                <input type="password" name="pwdRepeat" placeholder="Repeat your password" class="">
-                <button type="submit" name="submit" id="SignupSubmit">Sign Up</button>
+                <input type="file" name="game" class="avatar">
+                <button type="submit" name="upload" id="uploadSubmit">Upload</button>
+                <textarea name="gamesDescription" placeholder="Game description" class=""></textarea>
+                <input type="text" name="downloadLink" placeholder="Download link" class="">
+                <button type="submit" name="submit" id="gameSubmit">Add your game</button>
             </form>
         </section>
     </div>

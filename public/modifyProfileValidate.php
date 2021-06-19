@@ -52,11 +52,11 @@
             exit();
         }
 
-        $fileDestination = __DIR__ . '/assets/img/upload/avatar/' . 'avatar' . $_SESSION["userid"] . '.jpg';
+        $fileDestination = __DIR__ . '/assets/img/upload/avatar/' . 'avatar' . $_SESSION["userid"] . '.png';
 
         move_uploaded_file($fileTmpName, $fileDestination);
 
-        header('location: ./modifyProfile.php?uploadsuccess');
+        header('location: ./modifyProfile.php?error=uploadsuccess');
         exit();
     }
     else {

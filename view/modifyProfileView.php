@@ -29,19 +29,19 @@
                         <tr>
                             <td>Username</td>
                             <td>
-                                <input type="text" name="uid" placeholder="Change username" value="<?php echo $resultData['usersUid'] ?>" class="profile-input">
+                                <input type="text" name="uid" required placeholder="Change username" value="<?php echo $resultData['usersUid'] ?>" class="profile-input">
                             </td>
                         </tr>
                         <tr>
                             <td>Name</td>
                             <td>
-                                <input type="text" name="name" placeholder="Change name" value="<?php echo $resultData['usersName'] ?>" class="profile-input">
+                                <input type="text" name="name" required placeholder="Change name" value="<?php echo $resultData['usersName'] ?>" class="profile-input">
                             </td>
                         </tr>
                         <tr>
                             <td>Email</td>
                             <td>
-                            <input type="text" name="email" placeholder="Change Email" value="<?php echo $resultData['usersEmail'] ?>" class="profile-input">
+                            <input type="text" name="email" required placeholder="Change Email" value="<?php echo $resultData['usersEmail'] ?>" class="profile-input">
                             </td>
                         </tr>
                     </tbody>

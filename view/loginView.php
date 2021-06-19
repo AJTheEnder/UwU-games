@@ -23,8 +23,8 @@
                     echo "<form action='./loginValidate.php' method='post'>";
                 }
                 ?>
-                    <input type="text" name="uid" placeholder="Enter your username/email">
-                    <input type="password" name="pwd" placeholder="Enter yout password">
+                    <input type="text" name="uid" required placeholder="Enter your username/email">
+                    <input type="password" name="pwd" required placeholder="Enter yout password">
                     <button type="submit" name="submit">Sign Up</button>
                 </form>
             </div>

@@ -20,9 +20,6 @@
 
     function applyModif($dbh, $name, $email, $uid)
     {
-        var_dump($name);
-        var_dump($email);
-        var_dump($uid);
         $sql = "UPDATE users SET usersName = :name, usersEmail = :email, usersUid = :uid WHERE usersId = :id;";
         $sth = $dbh->prepare($sql);
         $sth->execute(array(':name' => $name, ':email' => $email, ':uid' => $uid, ':id' => $_SESSION["userid"]));
