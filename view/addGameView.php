@@ -6,9 +6,10 @@
         exit();
     }
 ?>
-    <div class="addGameBox">
-        <section class="addgame-form">
-            <h2>Sign Up</h2>
+
+    <div class="wrapper">
+        <section id="addGameForm" class="formSection">
+            <h2>Add a game</h2>
             <?php
                 if (isset($_GET["error"])) {
                     if ($_GET["error"] == "emptyinput") {
@@ -25,13 +26,15 @@
                     }
                 }
             ?>
-            <form action="./addGameValidate.php" method="post" enctype="multipart/form-data" class="">
-                <input type="text" name="gameName" placeholder="Game name" class="">
-                <input type="file" name="gameImage" class="gameUpload">
-                <textarea name="gameDescription" placeholder="Game description" class=""></textarea>
-                <input type="date" name="releaseDate" class="">
-                <input type="text" name="downloadLink" placeholder="Download link" class="">
-                <button type="submit" name="submit" id="gameSubmit">Add your game</button>
+            <form action="./addGameValidate.php" method="post" enctype="multipart/form-data" class="form">
+                <input type="text" name="gameName" placeholder="Game name" class="textInput">
+                <div class="boxInput">
+                    <p>Image</p><input type="file" name="gameImage" class="gameUpload">
+                </div>
+                <textarea name="gameDescription" placeholder="Game description" class="textAreaInput"></textarea>
+                <input type="date" name="releaseDate" class="textInput">
+                <input type="text" name="downloadLink" placeholder="Download link" class="textInput">
+                <button type="submit" name="submit" class="button">Add your game</button>
             </form>
         </section>
     </div>

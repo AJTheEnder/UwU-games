@@ -1,9 +1,12 @@
 <?php include_once 'headerView.php'; ?>
     <div class="wrapper">
-        <section class="signup-form">
+        <section id="loginForm" class="formSection">
             <h2>Log In</h2>
             <?php
                 if (isset($_GET["error"])) {
+                    if ($_GET["error"] == "emptyinput") {
+                        echo "<p class='errorMessage'>Please, fill in all fields</p>";
+                    }
                     if ($_GET["error"] == "wronglogin") {
                         echo "<p class='errorMessage'>Wrong login or password</p>";
                     }
@@ -14,20 +17,18 @@
                     }
                 }
             ?>
-            <div class="login-form">
-                <?php 
-                if (isset($_GET["from"])) {
-                    echo '<form action="./loginValidate.php?from=$_GET["from"]" method="post">';
-                }
-                else {
-                    echo "<form action='./loginValidate.php' method='post'>";
-                }
-                ?>
-                    <input type="text" name="uid" required placeholder="Enter your username/email">
-                    <input type="password" name="pwd" required placeholder="Enter yout password">
-                    <button type="submit" name="submit">Sign Up</button>
-                </form>
-            </div>
+            <?php 
+            if (isset($_GET["from"])) {
+                echo '<form action="./loginValidate.php?from=$_GET["from"]" method="post" class="form">';
+            }
+            else {
+                echo '<form action="./loginValidate.php" method="post" class="form">';
+            }
+            ?>
+                <input type="text" name="uid" placeholder="Enter your username/email" class="textInput">
+                <input type="password" name="pwd" placeholder="Enter yout password" class="textInput">
+                <button type="submit" name="submit" class="button">Sign Up</button>
+            </form>
         </section>
     </div>
 <?php include_once 'footerView.php'; ?>

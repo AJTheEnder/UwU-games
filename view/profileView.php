@@ -1,28 +1,27 @@
 <?php include_once 'headerView.php'; ?>
     <div class="wrapper">
-        <section class="signup-form">
-            <table>
+        <section class="profileSection">
+            <img src="<?php echo("assets/img/upload/avatar/avatar" . $_SESSION["userid"] . ".png")?>" alt="avatar" class="avatar" height="200px" width="200px">
+            <?php echo("<h2>Hello " . $resultData['usersName'] . "</h2>"); ?>
+            <table class="infoTable">
                 <tbody>
                     <tr>
-                        <td><img src="<?php echo("assets/img/upload/avatar/avatar" . $_SESSION["userid"] . ".png")?>" alt="avatar" height="200px" width="200px"></td>
-                        <td><?php echo("<h2>Hello " . $resultData['usersName'] . "</p>"); ?></td>
+                        <td class="infoName">Username</td>
+                        <td class="infoValue"><?php echo ($resultData['usersUid']); ?></td>
                     </tr>
                     <tr>
-                        <td>Username</td>
-                        <td><?php echo ($resultData['usersUid']); ?></td>
+                        <td class="infoName">Full name</td>
+                        <td class="infoValue"><?php echo ($resultData['usersName']); ?></td>
                     </tr>
                     <tr>
-                        <td>Full name</td>
-                        <td><?php echo ($resultData['usersName']); ?></td>
-                    </tr>
-                    <tr>
-                        <td>Email</td>
-                        <td><?php echo ($resultData['usersEmail']); ?></td>
+                        <td class="infoName">Email</td>
+                        <td class="infoValue"><?php echo ($resultData['usersEmail']); ?></td>
                     </tr>
                 </tbody>
             </table>
-            <a href="./deleteUser.php">Delete user</a>
-            <a href="./modifyProfile.php">Modify profile</a>
+            <hr>
+            <div class="button"><a href="./deleteUser.php">Delete user</a></div>
+            <div class="button"><a href="./modifyProfile.php">Modify profile</a></div>
         </section>
     </div>
 <?php include_once 'footerView.php'; ?>

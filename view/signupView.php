@@ -1,5 +1,5 @@
 <?php include_once 'headerView.php'; ?>
-    <div class="wraper">
+    <div class="wrapper">
         <section id="signupForm" class="formSection">
             <h2>Sign Up</h2>
             <?php
