@@ -1,13 +1,17 @@
 <?php
     function getGames($category) {
-        if ($category === "Most popular") {
+        if ($category === "MostPopular") {
             $sql = "SELECT gamesId, gamesName, gamesDescription, gamesDate, gamesVote, gamesLink, gamesCreator FROM games ORDER BY gamesName ASC";
         }
-        else if ($category === "Most recent") {
+        else if ($category === "MostRecent") {
             $sql = "SELECT gamesId, gamesName, gamesDescription, gamesDate, gamesVote, gamesLink, gamesCreator FROM games ORDER BY gamesDate DESC";
         }
         else if ($category === "Alphabetical") {
             $sql = "SELECT gamesId, gamesName, gamesDescription, gamesDate, gamesVote, gamesLink, gamesCreator FROM games ORDER BY gamesVote DESC";
+        }
+        else {
+            header('location: ./shop.php?error=database');
+            exit();
         }
         
         $sth = $dbh->prepare($sql);

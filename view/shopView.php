@@ -2,19 +2,18 @@
     <div class="wrapper">
         <section class="intro">
             <h1>Shop</h1>
-            <form action="./shop.php" method="post">
-                <select id="categoryDropdown" name="category">
-                    <option value="volvo">Most popular</option>
-                    <option value="saab">Most recent</option>
-                    <option value="fiat">Alphabetical</option>
+            <form action="./shopValidate.php" method="post" id="categoryForm">
+                <select id="orderDropdown" name="order">
+                    <option value="MostPopular">Most popular</option>
+                    <option value="MostRecent">Most recent</option>
+                    <option value="Alphabetical">Alphabetical</option>
                 </select>
+                <button type="submit" name="submitCategory">Go</button>
             </form>
         </section>
         <section class="gameList">
             <ul>
-                <?php
-                getGames($_POST['category']);
-                foreach ($gameArray as $game) { ?>
+                <?php foreach ($gameArray as $game) { ?>
                     <div>
                         <img src="<?php echo ("game" . $game['gamesId']); ?>" alt="<?php echo ("game" . $game['gamesId']); ?>">
                         <p><?php echo ($game['gamesDate']); ?></p>
