@@ -1,10 +1,11 @@
 <?php
-    function emptyInputGame($gameName, $gamesDescription, $downloadLink)
+    function emptyInputGame($gameName, $gamesDescription, $gameDate, $downloadLink)
     {
         $result;
         if (
             empty($gameName) ||
             empty($gamesDescription) ||
+            empty($gameDate) ||
             empty($downloadLink)
         ) {
             $result = true;
@@ -51,12 +52,12 @@
         $sth->closeCursor();
     }
 
-    function createGame($dbh, $gameName, $gamesDescription, $downloadLink)
+    function createGame($dbh, $gameName, $gamesDescription, $gameDate, $downloadLink)
     {
         $creator = $_SESSION["useruid"];
-        $sql = "INSERT INTO games (gamesName, gamesDescription, gamesLink, gamesCreator) VALUES (:name, :description, :link, :creator);";
+        $sql = "INSERT INTO games (gamesName, gamesDescription, gamesDate, gamesLink, gamesCreator) VALUES (:name, :description, :date, :link, :creator);";
         $sth = $dbh->prepare($sql);
-        $sth->execute(array(':name' => $gameName, ':description' => $gamesDescription, ':link' => $downloadLink, ':creator' => $creator));
+        $sth->execute(array(':name' => $gameName, ':description' => $gamesDescription, ':date' => $gameDate, ':link' => $downloadLink, ':creator' => $creator));
 
         header('location: ./shop.php');
         exit();

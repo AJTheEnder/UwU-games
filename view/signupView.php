@@ -22,11 +22,11 @@
                 }
             ?>
             <form action="./signupValidate.php" method="post" class="signup-form">
-                <input type="text" name="name" required placeholder="Enter your name" class="signup-input">
-                <input type="email" name="email" required placeholder="Enter your email" class="signup-input">
-                <input type="text" name="uid" required placeholder="Enter your username" class="signup-input">
-                <input type="password" name="pwd" required placeholder="Enter yout password" class="signup-input">
-                <input type="password" name="pwdRepeat" required placeholder="Repeat your password" class="signup-input">
+                <input type="text" name="name" placeholder="Enter your name" class="signup-input">
+                <input type="email" name="email" placeholder="Enter your email" class="signup-input">
+                <input type="text" name="uid" placeholder="Enter your username" class="signup-input">
+                <input type="password" name="pwd" placeholder="Enter yout password" class="signup-input">
+                <input type="password" name="pwdRepeat" placeholder="Repeat your password" class="signup-input">
                 <button type="submit" name="submit" id="SignupSubmit">Sign Up</button>
             </form>
         </section>

@@ -25,11 +25,11 @@
                     }
                 }
             ?>
-            <form action="./addGameValidate.php" method="post" class="">
+            <form action="./addGameValidate.php" method="post" enctype="multipart/form-data" class="">
                 <input type="text" name="gameName" placeholder="Game name" class="">
-                <input type="file" name="game" class="avatar">
-                <button type="submit" name="upload" id="uploadSubmit">Upload</button>
-                <textarea name="gamesDescription" placeholder="Game description" class=""></textarea>
+                <input type="file" name="gameImage" class="gameUpload">
+                <textarea name="gameDescription" placeholder="Game description" class=""></textarea>
+                <input type="date" name="releaseDate" class="">
                 <input type="text" name="downloadLink" placeholder="Download link" class="">
                 <button type="submit" name="submit" id="gameSubmit">Add your game</button>
             </form>

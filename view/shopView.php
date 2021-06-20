@@ -1,26 +1,28 @@
 <?php include_once 'headerView.php'; ?>
     <div class="wrapper">
-        <section class="index-intro">
-            <h1>This is an introduction</h1>
-            <p>And this is a paragraph</p>
+        <section class="intro">
+            <h1>Shop</h1>
+            <form action="./shop.php" method="post">
+                <select id="categoryDropdown" name="category">
+                    <option value="volvo">Most popular</option>
+                    <option value="saab">Most recent</option>
+                    <option value="fiat">Alphabetical</option>
+                </select>
+            </form>
         </section>
-
-        <section class="index-categories">
-            <h2>Some Basic Category</h2>
-            <div class="index-categories-list">
-                <div>
-                    <h3>Fun Stuff</h3>
-                </div>
-                <div>
-                    <h3>Serious Stuff</h3>
-                </div>
-                <div>
-                    <h3>Exiting Stuff</h3>
-                </div>
-                <div>
-                    <h3>Boring Stuff</h3>
-                </div>
-            </div>
+        <section class="gameList">
+            <ul>
+                <?php
+                getGames($_POST['category']);
+                foreach ($gameArray as $game) { ?>
+                    <div>
+                        <img src="<?php echo ("game" . $game['gamesId']); ?>" alt="<?php echo ("game" . $game['gamesId']); ?>">
+                        <p><?php echo ($game['gamesDate']); ?></p>
+                        <p><?php echo ($game['gamesVote']); ?></p>
+                    </div>
+                <?php } ?>
+            </ul>
         </section>
+        
     </div>
 <?php include_once 'footerView.php'; ?>
