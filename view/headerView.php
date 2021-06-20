@@ -6,8 +6,8 @@
         <link rel="stylesheet" href="/assets/css/style.css">
     </head>
     <body>
-        <div class="Top">
-            <nav class="TopBar">
+        <nav id="navBar">
+            <div class="navBox">
                 <img src="assets\img\UWU_Logo_Light.png" alt="Logo" class="UwU_Logo">
                 <ul class="PageList">
                     <li class="PageLink">
@@ -31,5 +31,5 @@
                         }
                     ?>
                 </ul>
-            </nav>
-        </div>
+            </div>
+        </nav>

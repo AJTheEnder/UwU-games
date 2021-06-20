@@ -4,7 +4,7 @@
             <table>
                 <tbody>
                     <tr>
-                        <td><img src="<?php echo("assets/img/upload/avatar/avatar" . $_SESSION["userid"] . ".jpg")?>" alt="avatar" height="200px" width="200px"></td>
+                        <td><img src="<?php echo("assets/img/upload/avatar/avatar" . $_SESSION["userid"] . ".png")?>" alt="avatar" height="200px" width="200px"></td>
                         <td><?php echo("<h2>Hello " . $resultData['usersName'] . "</p>"); ?></td>
                     </tr>
                     <tr>

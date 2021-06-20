@@ -1,3 +1,5 @@
+/* ==== General ==== */
+
 :root {
   --back_dark: rgb(32, 36, 48);
   --back_light: rgb(65, 67, 97);
@@ -21,26 +23,18 @@ body {
   height: 100%;
   width: 100%;
 }
-a {
-  font-weight: bold;
-  text-decoration: none;
-  color: var(--highlight);
+
+.wraper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  padding: 30px;
 }
-a:link,
-a:visited {
-  transition-duration: 0.5s;
-  transition: ease-in-out;
-  font-weight: bold;
-  text-decoration: none;
-  color: var(--highlight);
-}
-a:hover,
-a:active {
-  color: var(--pink_highlight);
-  text-decoration: none;
-  text-shadow: 0px 0px 15px var(--pink_highlight);
-}
-.Top {
+
+/* ==== Navbar ==== */
+
+#navBar {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -49,77 +43,114 @@ a:active {
   padding: 30px;
 }
 
-.TopBar {
+#navBar .navBox {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: nowrap;
   align-items: center;
   background-color: var(--back_light);
-  border-radius: 25px;
+  border-radius: 15px;
   width: 100%;
   max-width: 1200px;
   padding: 10px 50px 10px 50px;
 }
-.UwU_Logo {
+
+#navBar .navBox .UwU_Logo {
   display: flex;
   height: 64px;
 }
-ul.PageList {
+
+#navBar .navBox .PageList {
   list-style: none;
   display: flex;
   flex-direction: row;
   width: 100%;
 }
-li.PageLink {
+
+#navBar .PageLink {
   padding: 0;
   margin: auto;
 }
 
-.PageList.PageList a:link,
-.PageList.PageList a:visited {
+#navBar .PageList.PageList a:link,
+#navBar .PageList.PageList a:visited {
   transition-duration: 0.3s;
   font-weight: bold;
   text-decoration: none;
   color: var(--highlight);
 }
 
-.PageList.PageList a:hover,
-.PageList.PageList a:active {
+#navBar .PageList.PageList a:hover,
+#navBar .PageList.PageList a:active {
   transition-duration: 0.3s;
   color: var(--pink_highlight);
   text-decoration: none;
   text-shadow: 0px 0px 15px var(--pink_highlight);
 }
 
-.signBox {
+/* ==== Form ==== */
+
+.formSection {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-color: var(--back_light);
-  margin: 60px auto 60px auto;
-  padding: 30px 60px 80px 60px;
-  width: 70%;
-  border-radius: 60px;
+  border-radius: 15px;
+  padding: 30px;
 }
-.signup-form {
+
+.formSection .errorMessage {
+  color: var(--pink_highlight);
+}
+
+.formSection form {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
 }
-.signup-input {
+
+.formSection .textInput {
+  transition-duration: 0.3s;
   display: flex;
-  margin: 10px 0 10px 0;
+  margin: 10px;
+  width: 100%;
+  height: 25px;
   font-size: large;
   background-color: rgba(0, 0, 0, 0);
-  border: 1px solid var(--highlight);
-  border-radius: 10px;
+  box-shadow: none;
+  border: 2px solid var(--pink);
+  border-radius: 15px;
   padding: 12px 20px;
   color: var(--highlight);
 }
-#SignupSubmit {
+
+.formSection .textInput:hover,
+.formSection .textInput:active {
+  transition-duration: 0.3s;
+  border: 2px solid var(--pink_highlight);
+  box-shadow: 0px 0px 15px var(--pink_highlight);
+}
+
+.formSection .button {
   background-color: var(--pink);
-  border: 0px solid var(--highlight);
-  border-radius: 20px;
-  padding: 12px 20px;
-  font-size: xx-large;
-  color: var(--purple);
+  border: none;
+  margin: 10px 20px;
+  width: fit-content;
+  height: 53px;
+  border-radius: 15px;
+  padding: 12px 50px;
+  font-size: 20pt;
+  font-weight: bold;
+  color: var(--back_light);
+}
+
+.formSection .button:hover,
+.formSection .button:active {
+  transition-duration: 0.3s;
+  background-color: var(--pink_highlight);
+  box-shadow: 0px 0px 15px var(--pink_highlight);
 }

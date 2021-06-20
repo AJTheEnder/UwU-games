@@ -21,7 +21,6 @@
                     </div>
                 <?php } ?>
             </ul>
-        </section>
-        
+        </section> 
     </div>
 <?php include_once 'footerView.php'; ?>
