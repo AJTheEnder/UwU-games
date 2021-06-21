@@ -27,7 +27,7 @@
             ?>
                 <input type="text" name="uid" placeholder="Enter your username/email" class="textInput">
                 <input type="password" name="pwd" placeholder="Enter yout password" class="textInput">
-                <button type="submit" name="submit" class="button">Sign Up</button>
+                <button type="submit" name="submit" class="button">Log in</button>
             </form>
         </section>
     </div>

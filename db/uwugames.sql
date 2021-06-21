@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 21 juin 2021 à 12:26
+-- Généré le : lun. 21 juin 2021 à 19:24
 -- Version du serveur :  10.4.18-MariaDB
 -- Version de PHP : 8.0.3
 
@@ -75,7 +75,7 @@ CREATE TABLE `games` (
   `gamesName` varchar(45) NOT NULL,
   `gamesDescription` text NOT NULL,
   `gamesDate` date NOT NULL DEFAULT current_timestamp(),
-  `gamesVote` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `gamesDownloads` int(10) UNSIGNED NOT NULL DEFAULT 0,
   `gamesLink` varchar(45) NOT NULL,
   `gamesCreator` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -84,9 +84,10 @@ CREATE TABLE `games` (
 -- Déchargement des données de la table `games`
 --
 
-INSERT INTO `games` (`gamesId`, `gamesName`, `gamesDescription`, `gamesDate`, `gamesVote`, `gamesLink`, `gamesCreator`) VALUES
-(1, 'Minecraft', 'Un jeu avec des cubes', '0000-00-00', 0, 'blabla', 'Mojang'),
-(2, 'Wakfu', 'Un jeu avec pleins de classes trop cool', '0000-00-00', 0, 'blabla2', 'Ankama');
+INSERT INTO `games` (`gamesId`, `gamesName`, `gamesDescription`, `gamesDate`, `gamesDownloads`, `gamesLink`, `gamesCreator`) VALUES
+(29, 'Minecraft', 'Un jeu avec des cubes', '2011-10-18', 0, 'https://www.minecraft.net/fr-fr', 'admin'),
+(30, 'Fez', 'Fez est un jeu vidéo de plates-formes et de réflexion développé par le studio indépendant montréalais Polytron Corporation, sorti le 13 avril 2012 sur Xbox 360 (XBLA), le 1er mai 2013 sur Windows (Steam), le 11 septembre 2013 sur GNU/Linux et MacOS X, le 26 mars 2014 sur les consoles PlayStation (PS3, PS4 et PSVita) et le 14 avril 2021 sur Nintendo Switch. Le jeu s\'est vendu à un million d\'exemplaires le 9 décembre 2013. À l\'Independent Games Festival, le jeu a remporté le prix Excellence in Visual Art en 2008, a été nommé pour Design innovation la même année et a remporté le grand prix en 2012.', '2013-05-01', 0, 'http://fezgame.com/', 'admin'),
+(31, 'Solitaire windows', 'Solitaire est une adaptation informatique pour les PC du jeu de cartes et de patience du même nom, distribué avec le système d\'exploitation Windows.', '1990-01-01', 0, 'https://support.microsoft.com/fr-fr/account-b', 'admin');
 
 -- --------------------------------------------------------
 
@@ -133,7 +134,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `games`
 --
 ALTER TABLE `games`
-  MODIFY `gamesId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `gamesId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT pour la table `users`

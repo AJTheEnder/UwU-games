@@ -3,13 +3,13 @@
 
     function getGames($dbh, $category) {
         if ($category === "MostPopular") {
-            $sql = "SELECT gamesId, gamesName, gamesDescription, gamesDate, gamesVote, gamesLink, gamesCreator FROM games ORDER BY gamesName ASC";
+            $sql = "SELECT gamesId, gamesName, gamesDescription, gamesDate, gamesDownloads, gamesLink, gamesCreator FROM games ORDER BY gamesName ASC";
         }
         else if ($category === "MostRecent") {
-            $sql = "SELECT gamesId, gamesName, gamesDescription, gamesDate, gamesVote, gamesLink, gamesCreator FROM games ORDER BY gamesDate DESC";
+            $sql = "SELECT gamesId, gamesName, gamesDescription, gamesDate, gamesDownloads, gamesLink, gamesCreator FROM games ORDER BY gamesDate DESC";
         }
         else if ($category === "Alphabetical") {
-            $sql = "SELECT gamesId, gamesName, gamesDescription, gamesDate, gamesVote, gamesLink, gamesCreator FROM games ORDER BY gamesVote DESC";
+            $sql = "SELECT gamesId, gamesName, gamesDescription, gamesDate, gamesDownloads, gamesLink, gamesCreator FROM games ORDER BY gamesDownloads DESC";
         }
         else {
             header('location: ./shop.php?error=database');

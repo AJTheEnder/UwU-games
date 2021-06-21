@@ -27,7 +27,7 @@
                         <div class="textPreview">
                             <p class="gameName"><?php echo ($game['gamesName']); ?></p>
                             <p class="gameDate"><span class="pink">Release date :</span> <?php echo ($game['gamesDate']); ?></p>
-                            <p class="gameDescription"><span class="pink">Downloads :</span> <?php echo ($game['gamesVote']); ?></p>
+                            <p class="gameDescription"><span class="pink">Downloads :</span> <?php echo ($game['gamesDownloads']); ?></p>
                             <div class="button">
                             <a href="./game.php?id=<?php echo ($game['gamesId']); ?>">View more</a>
                             </div>
