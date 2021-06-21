@@ -23,7 +23,7 @@
                     }
                     foreach ($gameArray as $game) { ?>
                     <div>
-                        <img src="<?php echo ("game" . $game['gamesId']); ?>" alt="<?php echo ("game" . $game['gamesId']); ?>">
+                        <img src="<?php echo ("/assets/img/upload/game/game" . $game['gamesId'] . ".png"); ?>" alt="<?php echo ("game" . $game['gamesId']); ?>">
                         <p><?php echo ($game['gamesName']); ?></p>
                         <p><?php echo ($game['gamesDate']); ?></p>
                         <p><?php echo ($game['gamesVote']); ?></p>

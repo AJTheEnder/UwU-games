@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 17 juin 2021 à 14:47
+-- Généré le : lun. 21 juin 2021 à 12:26
 -- Version du serveur :  10.4.18-MariaDB
 -- Version de PHP : 8.0.3
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `uwu_games`
+-- Base de données : `uwugames`
 --
 
 -- --------------------------------------------------------
@@ -74,6 +74,8 @@ CREATE TABLE `games` (
   `gamesId` int(11) NOT NULL,
   `gamesName` varchar(45) NOT NULL,
   `gamesDescription` text NOT NULL,
+  `gamesDate` date NOT NULL DEFAULT current_timestamp(),
+  `gamesVote` int(10) UNSIGNED NOT NULL DEFAULT 0,
   `gamesLink` varchar(45) NOT NULL,
   `gamesCreator` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -82,9 +84,9 @@ CREATE TABLE `games` (
 -- Déchargement des données de la table `games`
 --
 
-INSERT INTO `games` (`gamesId`, `gamesName`, `gamesDescription`, `gamesLink`, `gamesCreator`) VALUES
-(1, 'Minecraft', 'Un jeu avec des cubes', 'blabla', 'Mojang'),
-(2, 'Wakfu', 'Un jeu avec pleins de classes trop cool', 'blabla2', 'Ankama');
+INSERT INTO `games` (`gamesId`, `gamesName`, `gamesDescription`, `gamesDate`, `gamesVote`, `gamesLink`, `gamesCreator`) VALUES
+(1, 'Minecraft', 'Un jeu avec des cubes', '0000-00-00', 0, 'blabla', 'Mojang'),
+(2, 'Wakfu', 'Un jeu avec pleins de classes trop cool', '0000-00-00', 0, 'blabla2', 'Ankama');
 
 -- --------------------------------------------------------
 
@@ -94,10 +96,10 @@ INSERT INTO `games` (`gamesId`, `gamesName`, `gamesDescription`, `gamesLink`, `g
 
 CREATE TABLE `users` (
   `usersId` int(11) NOT NULL,
-  `usersName` varchar(45) NOT NULL,
-  `usersEmail` varchar(45) NOT NULL,
-  `usersUid` varchar(45) NOT NULL,
-  `usersPwd` varchar(45) NOT NULL
+  `usersName` varchar(128) NOT NULL,
+  `usersEmail` varchar(128) NOT NULL,
+  `usersUid` varchar(128) NOT NULL,
+  `usersPwd` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -105,48 +107,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`usersId`, `usersName`, `usersEmail`, `usersUid`, `usersPwd`) VALUES
-(1, 'Michel', 'michel@gmail.com', 'Michou', 'password'),
-(2, 'Titouan', 'hackerdu75@gmail.com', 'HackerDu75', 'infoLover');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `usersgames`
---
-
-CREATE TABLE `usersgames` (
-  `usergamesId` int(11) NOT NULL,
-  `userId` int(11) NOT NULL,
-  `gameId` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Déchargement des données de la table `usersgames`
---
-
-INSERT INTO `usersgames` (`usergamesId`, `userId`, `gameId`) VALUES
-(1, 1, 1),
-(2, 1, 2),
-(3, 2, 1),
-(4, 2, 2);
+(2, 'admin', 'admin@gmail.com', 'admin', '$2y$10$JOwOzjGmChf58PAFF1aR9OEjIYlrZpiqTUs4My3bl0KVfyU34U44m');
 
 --
 -- Index pour les tables déchargées
 --
-
---
--- Index pour la table `categories`
---
-ALTER TABLE `categories`
-  ADD PRIMARY KEY (`categoriesId`);
-
---
--- Index pour la table `categoriesgames`
---
-ALTER TABLE `categoriesgames`
-  ADD PRIMARY KEY (`categoriesgamesId`),
-  ADD KEY `categoryId` (`categoryId`),
-  ADD KEY `gameId` (`gameId`);
 
 --
 -- Index pour la table `games`
@@ -161,64 +126,20 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`usersId`);
 
 --
--- Index pour la table `usersgames`
---
-ALTER TABLE `usersgames`
-  ADD PRIMARY KEY (`usergamesId`),
-  ADD KEY `userId` (`userId`),
-  ADD KEY `gameId` (`gameId`);
-
---
 -- AUTO_INCREMENT pour les tables déchargées
 --
-
---
--- AUTO_INCREMENT pour la table `categories`
---
-ALTER TABLE `categories`
-  MODIFY `categoriesId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT pour la table `categoriesgames`
---
-ALTER TABLE `categoriesgames`
-  MODIFY `categoriesgamesId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `games`
 --
 ALTER TABLE `games`
-  MODIFY `gamesId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `gamesId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
   MODIFY `usersId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT pour la table `usersgames`
---
-ALTER TABLE `usersgames`
-  MODIFY `usergamesId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- Contraintes pour les tables déchargées
---
-
---
--- Contraintes pour la table `categoriesgames`
---
-ALTER TABLE `categoriesgames`
-  ADD CONSTRAINT `categoriesgames_ibfk_1` FOREIGN KEY (`categoryId`) REFERENCES `categories` (`categoriesId`),
-  ADD CONSTRAINT `categoriesgames_ibfk_2` FOREIGN KEY (`gameId`) REFERENCES `games` (`gamesId`);
-
---
--- Contraintes pour la table `usersgames`
---
-ALTER TABLE `usersgames`
-  ADD CONSTRAINT `usersgames_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`usersId`),
-  ADD CONSTRAINT `usersgames_ibfk_2` FOREIGN KEY (`gameId`) REFERENCES `games` (`gamesId`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
