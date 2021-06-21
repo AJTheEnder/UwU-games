@@ -58,9 +58,6 @@
         $sql = "INSERT INTO games (gamesName, gamesDescription, gamesDate, gamesLink, gamesCreator) VALUES (:name, :description, :date, :link, :creator);";
         $sth = $dbh->prepare($sql);
         $sth->execute(array(':name' => $gameName, ':description' => $gamesDescription, ':date' => $gameDate, ':link' => $downloadLink, ':creator' => $creator));
-
-        header('location: ./shop.php');
-        exit();
     }
 
     function invalidExtention($fileName, $allowed) {

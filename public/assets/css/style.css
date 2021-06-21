@@ -132,6 +132,13 @@ body {
   color: var(--highlight);
 }
 
+.formSection .textInput:hover,
+.formSection .textInput:active {
+  transition-duration: 0.3s;
+  border: 2px solid var(--pink_highlight);
+  box-shadow: 0px 0px 15px var(--pink_highlight);
+}
+
 .formSection .textAreaInput {
   transition-duration: 0.3s;
   resize: vertical;
@@ -146,6 +153,13 @@ body {
   border-radius: 15px;
   padding: 12px 20px;
   color: var(--highlight);
+}
+
+.formSection .textAreaInput:hover,
+.formSection .textAreaInput:active {
+  transition-duration: 0.3s;
+  border: 2px solid var(--pink_highlight);
+  box-shadow: 0px 0px 15px var(--pink_highlight);
 }
 
 .formSection .boxInput {
@@ -164,16 +178,16 @@ body {
   padding: 12px 20px;
 }
 
-.formSection .boxInput p {
-  margin: 0;
-  padding: 0;
-}
-
-.formSection .textInput:hover,
-.formSection .textInput:active {
+.formSection .boxInput:hover,
+.formSection .boxInput:active {
   transition-duration: 0.3s;
   border: 2px solid var(--pink_highlight);
   box-shadow: 0px 0px 15px var(--pink_highlight);
+}
+
+.formSection .boxInput p {
+  margin: 0;
+  padding: 0;
 }
 
 .formSection .button {

@@ -32,12 +32,12 @@
 
         createGame($dbh, $gameName, $gameDescription, $gameDate, $downloadLink);
         
-        if (isset($_POST['gameImage'])) {
-            $fileName = $_FILES['game']['name'];
-            $fileTmpName = $_FILES['game']['tmp_name'];
-            $fileSize = $_FILES['game']['size'];
-            $fileError = $_FILES['game']['error'];
-            $fileType = $_FILES['game']['type'];
+        if (isset($_FILES['gameImage'])) {
+            $fileName = $_FILES['gameImage']['name'];
+            $fileTmpName = $_FILES['gameImage']['tmp_name'];
+            $fileSize = $_FILES['gameImage']['size'];
+            $fileError = $_FILES['gameImage']['error'];
+            $fileType = $_FILES['gameImage']['type'];
     
             $fileActualExt = strtolower(end(explode(".", $fileName)));
             $allowed = array("jpg", "jpeg", "png");
@@ -56,17 +56,15 @@
                 header('location: ./addGame.php?error=oversizefile');
                 exit();
             }
-    
-            require_once __DIR__ . '/../db/dbh.php';
-            $sql = "SELECT MAX(gamesId) FROM games WHERE 1";
+
+            $sql = "SELECT gamesId FROM games WHERE gamesName = :gameName;";
             $sth = $dbh->prepare($sql);
-            $sth->execute(array());
+            $sth->execute(array(':gameName' => $gameName));
     
             $gameId = $sth->fetchAll()[0][0];
-    
-            $gameId = $gameId + 1;
-    
-            $fileDestination = __DIR__ . '/assets/img/upload/game/' . 'game' . $gameId . '.png';
+
+            $fileDestination = __DIR__ . '/assets/img/upload/game/game' . $gameId . '.png';
+            var_dump($fileDestination);
             move_uploaded_file($fileTmpName, $fileDestination);
         }
 

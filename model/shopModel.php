@@ -1,5 +1,7 @@
 <?php
-    function getGames($category) {
+    $gameArray = array();
+
+    function getGames($dbh, $category) {
         if ($category === "MostPopular") {
             $sql = "SELECT gamesId, gamesName, gamesDescription, gamesDate, gamesVote, gamesLink, gamesCreator FROM games ORDER BY gamesName ASC";
         }
@@ -17,9 +19,8 @@
         $sth = $dbh->prepare($sql);
         $sth->execute(array());
 
-        $gameArray = ($sth->fetchAll())[0];
+        $gameArray = ($sth->fetchAll());
         $sth->closeCursor();
 
-        header('location: ./shop.php');
-        exit();
+        return $gameArray;
     }

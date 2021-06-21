@@ -52,7 +52,7 @@
             exit();
         }
 
-        $fileDestination = __DIR__ . '/assets/img/upload/avatar/' . 'avatar' . $_SESSION["userid"] . '.png';
+        $fileDestination = __DIR__ . '/assets/img/upload/avatar/avatar' . $_SESSION["userid"] . '.png';
 
         move_uploaded_file($fileTmpName, $fileDestination);
 
