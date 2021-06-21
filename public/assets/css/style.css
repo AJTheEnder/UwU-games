@@ -273,3 +273,106 @@ body {
   font-weight: bold;
   color: var(--back_light);
 }
+
+/* ==== Shop ====*/
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--back_light);
+  border-radius: 15px;
+  padding: 30px;
+}
+
+.gameList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--back_light);
+  border-radius: 15px;
+  padding: 30px;
+  margin-top: 30px;
+}
+
+.gameList ul {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.gameList .gameListItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  transition-duration: 0.3s;
+  margin: 10px;
+  width: calc(100% - 42px);
+  height: auto;
+  font-size: large;
+  background-color: transparent;
+  box-shadow: none;
+  border: 2px solid var(--pink);
+  border-radius: 15px;
+  padding: 12px 12px;
+  
+}
+
+.gameList .gameListItem .imagePreview {
+  width: 300px;
+  height: 300px;
+  border-radius: 15px;
+  background-position: center;
+  background-size: cover;
+}
+
+.gameList .gameListItem .textPreview {
+  margin-left: 20px;
+}
+
+.gameList .gameListItem .textPreview p .pink {
+  font-size: 16pt;
+  font-weight: bold;
+  color: var(--pink);
+}
+
+.gameList .gameListItem .textPreview .gameName {
+  font-size: 20pt;
+  font-weight: bold;
+}
+
+.gameList .gameListItem .textPreview .gameDate,
+.gameList .gameListItem .textPreview .gameDescription {
+  font-size: 16pt;
+  font-weight: normal;
+}
+
+.gameList .gameListItem .textPreview .button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--pink);
+  border: none;
+  margin: 10px 20px;
+  width: fit-content;
+  height: fit-content;
+  border-radius: 15px;
+  padding: 12px 50px;
+  color: var(--back_light);
+}
+
+.gameList .gameListItem .textPreview .button:hover {
+  transition-duration: 0.3s;
+  background-color: var(--pink_highlight);
+  box-shadow: 0px 0px 15px var(--pink_highlight);
+  cursor: pointer;
+}
+
+.gameList .gameListItem .textPreview a {
+  font-size: 20pt;
+  text-decoration: none;
+  font-weight: bold;
+  color: var(--back_light);
+}

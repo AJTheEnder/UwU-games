@@ -22,11 +22,16 @@
                         $gameArray = getGames($dbh, $category);
                     }
                     foreach ($gameArray as $game) { ?>
-                    <div>
-                        <img src="<?php echo ("/assets/img/upload/game/game" . $game['gamesId'] . ".png"); ?>" alt="<?php echo ("game" . $game['gamesId']); ?>">
-                        <p><?php echo ($game['gamesName']); ?></p>
-                        <p><?php echo ($game['gamesDate']); ?></p>
-                        <p><?php echo ($game['gamesVote']); ?></p>
+                    <div class="gameListItem">
+                        <div class="imagePreview" style="background-image: url(<?php echo ("/assets/img/upload/game/game" . $game['gamesId'] . ".png"); ?>);"></div>
+                        <div class="textPreview">
+                            <p class="gameName"><?php echo ($game['gamesName']); ?></p>
+                            <p class="gameDate"><span class="pink">Release date :</span> <?php echo ($game['gamesDate']); ?></p>
+                            <p class="gameDescription"><span class="pink">Downloads :</span> <?php echo ($game['gamesVote']); ?></p>
+                            <div class="button">
+                            <a href="./game.php?id=<?php echo ($game['gamesId']); ?>">View more</a>
+                            </div>
+                        </div>
                     </div>
                 <?php } ?>
             </ul>
