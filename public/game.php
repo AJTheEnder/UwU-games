@@ -11,4 +11,10 @@
 
     require_once __DIR__ . '/../db/dbh.php';
     require_once __DIR__ . '/../model/gameModel.php';
-    require_once __DIR__ . '/../view/gameView.php';
+
+    if ($game === null) {
+        require_once __DIR__ . '/../view/error404.php';
+    }
+    else {
+        require_once __DIR__ . '/../view/gameView.php';
+    }

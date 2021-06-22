@@ -15,5 +15,4 @@
     $sth->execute(array(':id' => $_GET['id']));
 
     $game = ($sth->fetchAll())[0];
-
     $sth->closeCursor();
