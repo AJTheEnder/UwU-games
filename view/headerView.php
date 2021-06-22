@@ -14,9 +14,6 @@
                         <a href="shop.php">Shop</a>
                     </li>
                     <li class="PageLink">
-                        <a href="#">Library</a>
-                    </li>
-                    <li class="PageLink">
                         <a href="addGame.php">Add Game</a>
                     </li>
                     <?php

@@ -29,7 +29,7 @@
             <form action="./addGameValidate.php" method="post" enctype="multipart/form-data" class="form">
                 <input type="text" name="gameName" placeholder="Game name" class="textInput">
                 <div class="boxInput">
-                    <p>Image</p><input type="file" name="gameImage" class="gameUpload">
+                    <p>Image</p><input type="file" required name="gameImage" class="gameUpload">
                 </div>
                 <textarea name="gameDescription" placeholder="Game description" class="textAreaInput"></textarea>
                 <input type="date" name="releaseDate" class="textInput">

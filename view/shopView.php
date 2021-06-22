@@ -8,6 +8,7 @@
                     <option value="MostRecent">Most recent</option>
                     <option value="Alphabetical">Alphabetical</option>
                 </select>
+                <input type="text" name="search" placeholder="Search by name" class="textInput">
                 <button type="submit" name="submitCategory">Go</button>
             </form>
         </section>
@@ -16,10 +17,14 @@
                 <?php
                     if (isset($_POST['submitCategory'])) {
                         $category = $_POST['order'];
+                        $search = $_POST['search'];
                 
                         require_once __DIR__ . '/../db/dbh.php';
                         
-                        $gameArray = getGames($dbh, $category);
+                        $gameArray = getGames($dbh, $category, $search);
+                    }
+                    if (empty($gameArray)) {
+                        echo "<p class='errorMessage'>No result found</p>";
                     }
                     foreach ($gameArray as $game) { ?>
                     <div class="gameListItem">

@@ -377,6 +377,10 @@ body {
   color: var(--back_light);
 }
 
+.gameList .errorMessage {
+  color: var(--pink_highlight);
+}
+
 /* ==== Game ==== */
 
 .gameSection {

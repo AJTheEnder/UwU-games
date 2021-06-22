@@ -1,7 +1,15 @@
 <?php include_once 'headerView.php'; ?>
     <div class="wrapper">
         <section class="profileSection">
-            <img src="<?php echo("assets/img/upload/avatar/avatar" . $_SESSION["userid"] . ".png")?>" alt="avatar" class="avatar" height="200px" width="200px">
+            <?php 
+                if(file_exists("assets/img/upload/avatar/avatar" . $_SESSION["userid"] . ".png")) {
+                   $image = "assets/img/upload/avatar/avatar" . $_SESSION["userid"] . ".png";
+                }
+                else {
+                    $image = "assets/img/upload/avatar/avatarDefault.png";
+                }
+            ?>
+            <img src="<?php echo($image)?>" alt="avatar" class="avatar" height="200px" width="200px">
             <?php echo("<h2>Hello " . $resultData['usersName'] . "</h2>"); ?>
             <table class="infoTable">
                 <tbody>
