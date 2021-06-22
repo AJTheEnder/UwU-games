@@ -24,6 +24,15 @@
                 <div class="gamePicture" style="background-image: url(<?php echo ("/assets/img/upload/game/game" . $game['gamesId'] . ".png"); ?>);"></div>
             </div>
             <p calss="gameDescription"><span class="pink">Description : </span><?php echo($game['gamesDescription']) ?></p>
+            <?php
+                if(isset($_SESSION['useruid'])) {
+                    if($_SESSION['useruid'] === $game['gamesCreator']) {
+                        echo("<div class='button'>");
+                            echo("<a href='./deleteGame.php?id=" . $game['gamesId'] . "' target='_blank'>Delete game</a>");
+                        echo("</div>");
+                    }
+                }
+            ?>
         </section>
     </div>
 <?php include_once 'footerView.php'; ?>
