@@ -1,4 +1,13 @@
-<?php include_once 'headerView.php'; ?>
+<!--
+    * Created on Tue Jun 22 2021
+    *
+    * Copyright (c) 2021 - Mathéo G & Alex J & Jame FLC - All Right Reserved
+    *
+    * Licensed under the Apache License, Version 2.0
+    * Available on GitHub at https://github.com/Paracetamol56/UwU-game
+ -->
+
+ <?php include_once 'headerView.php'; ?>
 
 <?php
     if (isset($_SESSION["userid"]) === false) {
