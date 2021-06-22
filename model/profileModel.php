@@ -11,6 +11,7 @@
 
     session_start();
 
+    // Get user row according to user ID
     $sql = "SELECT usersId, usersName, usersEmail, usersUid, usersPwd FROM users WHERE usersUid = :uid;";
     $sth = $dbh->prepare($sql);
     $sth->execute(array(':uid' => $_SESSION["useruid"]));

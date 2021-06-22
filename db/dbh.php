@@ -9,6 +9,7 @@
 
 <?php
 
+// Server informations
 $serverName = "localhost";
 $serverPort = "3306";
 $dbName = "uwugames";
@@ -17,11 +18,13 @@ $dbPassword = "";
 
 $dbh;
 
+// Try to connect to database
 try
 {
     $dbh = new PDO("mysql:host=$serverName;port=$serverPort;dbname=$dbName", $dbUsername, $dbPassword);
 }
 catch(PDOException $e) {
-    print "Erreur !: " . $e->getMessage() . "<br>"; // Affichage du message d'erreur
-    die(); // Arrêt du script
+    // print th error message and stop the script
+    print "Erreur !: " . $e->getMessage() . "<br>";
+    die();
 }

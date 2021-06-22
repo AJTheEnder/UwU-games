@@ -8,7 +8,7 @@
  -->
 
 <?php
-
+    // Get game row according to game ID
     $sql = "SELECT gamesId, gamesName, gamesDescription, gamesDate, gamesDownloads, gamesLink, gamesCreator FROM games WHERE gamesId = :id";
     
     $sth = $dbh->prepare($sql);

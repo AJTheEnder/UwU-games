@@ -13,6 +13,11 @@
 
     require_once __DIR__ . '/../model/signupModel.php';
 
+    /**
+     * @name: emptyInputProfile
+     * Check empty inputs in the form
+     * @param: $name(String) $email(String) $uid(String)
+     */
     function emptyInputProfile($name, $email, $uid)
     {
         $result;
@@ -28,6 +33,11 @@
         return $result;
     }
 
+    /**
+     * @name: applyModif
+     * Apply changes into the database
+     * @param: $dbh(PDO) $name(String) $email(String) $uid(String)
+     */
     function applyModif($dbh, $name, $email, $uid)
     {
         $sql = "UPDATE users SET usersName = :name, usersEmail = :email, usersUid = :uid WHERE usersId = :id;";
@@ -40,6 +50,11 @@
         exit();
     }
 
+    /**
+     * @name: invalidExtention
+     * Check if file extention is supported (for image upload)
+     * @param: $fileName(String) $allowed(String)
+     */
     function invalidExtention($fileName, $allowed) {
         $fileExt = explode('.', $fileName);
         $fileActualExt = strtolower(end($fileExt));

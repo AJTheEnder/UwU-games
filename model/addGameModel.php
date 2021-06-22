@@ -9,6 +9,11 @@
 
 <?php
 
+    /**
+     * @name: emptyInputGame
+     * Check empty inputs in the form
+     * @param: $gameName(String) $gamesDescription(String) $gameDate(String) $downloadLink(String)
+     */
     function emptyInputGame($gameName, $gamesDescription, $gameDate, $downloadLink)
     {
         $result;
@@ -25,6 +30,11 @@
         return $result;
     }
 
+    /**
+     * @name: invalidName
+     * Check invalid characters in gameName
+     * @param: $gameName(String)
+     */
     function invalidName($gameName)
     {
         $result;
@@ -36,6 +46,11 @@
         return $result;
     }
 
+    /**
+     * @name: invalidLink
+     * Check if URL exists
+     * @param: $downloadLink(String)
+     */
     function invalidLink($downloadLink)
     {
         $result;
@@ -47,6 +62,11 @@
         return $result;
     }
 
+    /**
+     * @name: gameExists
+     * Check if name already exists in the database
+     * @param: $dbh(PDO) $gameName(String)
+     */
     function gameExists($dbh, $gameName)
     {
         $sql = "SELECT gamesId, gamesName, gamesDescription, gamesLink, gamesCreator FROM games WHERE gamesName = :name;";
@@ -54,6 +74,7 @@
         $sth->execute(array(':name' => $gameName));
 
         if ($resultData = $sth->fetchAll()) {
+            // Return game row if it exists
             return $resultData[0];
         } else {
             $result = false;
@@ -62,6 +83,11 @@
         $sth->closeCursor();
     }
 
+     /**
+     * @name: createGame
+     * Add the game to database
+     * @param: $dbh(PDO) $gameName(String) $gamesDescription(String) $gameDate(String) $downloadLink(String)
+     */
     function createGame($dbh, $gameName, $gamesDescription, $gameDate, $downloadLink)
     {
         $creator = $_SESSION["useruid"];
@@ -70,9 +96,16 @@
         $sth->execute(array(':name' => $gameName, ':description' => $gamesDescription, ':date' => $gameDate, ':link' => $downloadLink, ':creator' => $creator));
     }
 
+    /**
+     * @name: invalidExtention
+     * Check if file extention is supported (for image upload)
+     * @param: $fileName(String) $allowed(String)
+     */
     function invalidExtention($fileName, $allowed) {
         $fileExt = explode('.', $fileName);
         $fileActualExt = strtolower(end($fileExt));
+
+        $result;
 
         if (in_array($fileActualExt, $allowed)) {
             $result = $fileActualExt;

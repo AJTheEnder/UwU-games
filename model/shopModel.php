@@ -11,7 +11,13 @@
 
     $gameArray = array();
 
+    /**
+     * @name: getGames
+     * Get an array of games according acording to parameters (oder, string, category...)
+     * @param: $dbh(PDO) $category(String) $search(String)
+     */
     function getGames($dbh, $category, $search) {
+        // Searching by name
         if ($search !== "") {
             $sqlSufix = "WHERE gamesName LIKE :name";
         }
@@ -19,6 +25,7 @@
             $sqlSufix = "";
         }
 
+        // Ordering by MostPopular/MostRecent/Alphabetical
         if ($category === "MostPopular") {
             $sql = "SELECT gamesId, gamesName, gamesDescription, gamesDate, gamesDownloads, gamesLink, gamesCreator FROM games " . $sqlSufix . " ORDER BY gamesName ASC";
         }
