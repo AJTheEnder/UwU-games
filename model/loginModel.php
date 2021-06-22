@@ -18,7 +18,7 @@
     {
         $sql = "SELECT usersId, usersName, usersEmail, usersUid, usersPwd FROM users WHERE usersUid = :uid OR usersEmail = :email;";
         $sth = $dbh->prepare($sql);
-        $sth->execute(array(':uid' => $uid, ':email' => $email));
+        $sth->execute(array(':uid' => htmlspecialchars($uid), ':email' => htmlspecialchars($email)));
 
         if ($resultData = $sth->fetchAll()) {
             // Return user row if it exists

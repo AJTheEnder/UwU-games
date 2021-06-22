@@ -42,7 +42,7 @@
         
         $sth = $dbh->prepare($sql);
         if ($search !== "") {
-            $sth->execute(array(':name' => $search));
+            $sth->execute(array(':name' => htmlspecialchars($search)));
         }
         else {
             $sth->execute(array());

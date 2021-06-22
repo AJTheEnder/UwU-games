@@ -42,7 +42,7 @@
     {
         $sql = "UPDATE users SET usersName = :name, usersEmail = :email, usersUid = :uid WHERE usersId = :id;";
         $sth = $dbh->prepare($sql);
-        $sth->execute(array(':name' => $name, ':email' => $email, ':uid' => $uid, ':id' => $_SESSION["userid"]));
+        $sth->execute(array(':name' => htmlspecialchars($name), ':email' => htmlspecialchars($email), ':uid' => htmlspecialchars($uid), ':id' => $_SESSION["userid"]));
 
         $_SESSION["useruid"] = $uid;
 

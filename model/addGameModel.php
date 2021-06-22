@@ -71,7 +71,7 @@
     {
         $sql = "SELECT gamesId, gamesName, gamesDescription, gamesLink, gamesCreator FROM games WHERE gamesName = :name;";
         $sth = $dbh->prepare($sql);
-        $sth->execute(array(':name' => $gameName));
+        $sth->execute(array(':name' => htmlspecialchars($gameName)));
 
         if ($resultData = $sth->fetchAll()) {
             // Return game row if it exists
@@ -93,7 +93,7 @@
         $creator = $_SESSION["useruid"];
         $sql = "INSERT INTO games (gamesName, gamesDescription, gamesDate, gamesLink, gamesCreator) VALUES (:name, :description, :date, :link, :creator);";
         $sth = $dbh->prepare($sql);
-        $sth->execute(array(':name' => $gameName, ':description' => $gamesDescription, ':date' => $gameDate, ':link' => $downloadLink, ':creator' => $creator));
+        $sth->execute(array(':name' => htmlspecialchars($gameName), ':description' => htmlspecialchars($gamesDescription), ':date' => htmlspecialchars($gameDate), ':link' => htmlspecialchars($downloadLink), ':creator' => htmlspecialchars($creator)));
     }
 
     /**
