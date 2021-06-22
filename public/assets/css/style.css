@@ -355,7 +355,7 @@ body {
   align-items: center;
   background-color: var(--pink);
   border: none;
-  margin: 10px 20px;
+  margin: 10px 0px;
   width: fit-content;
   height: fit-content;
   border-radius: 15px;
@@ -371,6 +371,79 @@ body {
 }
 
 .gameList .gameListItem .textPreview a {
+  font-size: 20pt;
+  text-decoration: none;
+  font-weight: bold;
+  color: var(--back_light);
+}
+
+/* ==== Game ==== */
+
+.gameSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--back_light);
+  border-radius: 15px;
+  padding: 30px 15%;
+}
+
+.gameSection .gameItemPicture {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.gameSection .gameItemPicture .gamePicture {
+  width: 300px;
+  height: 300px;
+  border-radius: 15px;
+  background-position: center;
+  background-size: cover;
+}
+
+.gameSection .gameItem {
+  font-size: 16pt;
+  font-weight: normal;
+  text-align: left;
+}
+
+.gameSection .gameDescription {
+  font-size: 16pt;
+  font-weight: normal;
+  text-align: justify;
+}
+
+.gameSection .pink {
+  font-size: 16pt;
+  font-weight: bold;
+  color: var(--pink);
+}
+
+.gameSection .gameItemPicture .gameItemList .button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--pink);
+  border: none;
+  margin: 10px 0px;
+  width: fit-content;
+  height: fit-content;
+  border-radius: 15px;
+  padding: 12px 50px;
+  color: var(--back_light);
+}
+
+.gameSection .gameItemPicture .gameItemList .button:hover {
+  transition-duration: 0.3s;
+  background-color: var(--pink_highlight);
+  box-shadow: 0px 0px 15px var(--pink_highlight);
+  cursor: pointer;
+}
+
+.gameSection .gameItemPicture .gameItemList .button a {
   font-size: 20pt;
   text-decoration: none;
   font-weight: bold;

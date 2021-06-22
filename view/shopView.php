@@ -29,7 +29,7 @@
                             <p class="gameDate"><span class="pink">Release date :</span> <?php echo ($game['gamesDate']); ?></p>
                             <p class="gameDescription"><span class="pink">Downloads :</span> <?php echo ($game['gamesDownloads']); ?></p>
                             <div class="button">
-                            <a href="./game.php?id=<?php echo ($game['gamesId']); ?>">View more</a>
+                                <a href="./game.php?id=<?php echo ($game['gamesId']); ?>">View more</a>
                             </div>
                         </div>
                     </div>
