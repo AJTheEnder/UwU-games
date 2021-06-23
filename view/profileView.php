@@ -4,13 +4,16 @@
     * Copyright (c) 2021 - Mathéo G & Alex J & Jame FLC - All Right Reserved
     *
     * Licensed under the Apache License, Version 2.0
-    * Available on GitHub at https://github.com/Paracetamol56/UwU-game
+    * Available on GitHub at https://github.com/Paracetamol56/UwU-games
  -->
 
- <?php include_once 'headerView.php'; ?>
+<!-- Includer header (navBar & begining tags) -->
+<?php include_once 'headerView.php'; ?>
+
     <div class="wrapper">
         <section class="profileSection">
             <?php 
+                // Avatar display
                 if(file_exists("assets/img/upload/avatar/avatar" . $_SESSION["userid"] . ".png")) {
                    $image = "assets/img/upload/avatar/avatar" . $_SESSION["userid"] . ".png";
                 }
@@ -41,4 +44,6 @@
             <div class="button"><a href="./modifyProfile.php">Modify profile</a></div>
         </section>
     </div>
+
+<!-- Includer footer (closing tags) -->
 <?php include_once 'footerView.php'; ?>

@@ -4,13 +4,16 @@
     * Copyright (c) 2021 - Mathéo G & Alex J & Jame FLC - All Right Reserved
     *
     * Licensed under the Apache License, Version 2.0
-    * Available on GitHub at https://github.com/Paracetamol56/UwU-game
+    * Available on GitHub at https://github.com/Paracetamol56/UwU-games
  -->
 
- <?php include_once 'headerView.php'; ?>
+<!-- Includer header (navBar & begining tags) -->
+<?php include_once 'headerView.php'; ?>
+
     <div class="wrapper">
         <section id="modifyProfileForm" class="formSection">
             <?php
+                // Display errors
                 if (isset($_GET["error"])) {
                     if ($_GET["error"] == "invalidextention") {
                         echo "<p class='errorMessage'>Your file is not supported, allowed extentions are jpg, jpeg, png</p>";
@@ -67,4 +70,6 @@
             </form>
         </section>
     </div>
+
+<!-- Includer footer (closing tags) -->
 <?php include_once 'footerView.php'; ?>
